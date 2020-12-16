@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 
 import { Container } from './styles';
 
@@ -15,9 +15,20 @@ const Header: React.FC<HeaderProps> = ({ size = 'large' }: HeaderProps) => (
     <header>
       <img src={Logo} alt="GoFinances" />
       <nav>
-        {
-          // Todo
-        }
+        <menu>
+          <Link
+            to="/"
+            className={useRouteMatch().url === '/' ? 'selected' : ''}
+          >
+            Listagem
+          </Link>
+          <Link
+            to="/import"
+            className={useRouteMatch().url === '/import' ? 'selected' : ''}
+          >
+            Importar
+          </Link>
+        </menu>
       </nav>
     </header>
   </Container>
